@@ -10,4 +10,20 @@ module shift_register #(parameter N=4)
 
 //complete here
 
+always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        parallel_out <= '0;
+    end
+    else if (load_enable) begin
+        if (serial_parallel) begin
+            parallel_out <= parallel_in;
+        end
+        else begin
+            parallel_out <= {{serial_in}, parallel_out[N-1:1]};
+        end
+    end
+end
+
+assign serial_out = parallel_out[0];
+
 endmodule
