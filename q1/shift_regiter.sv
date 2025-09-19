@@ -22,6 +22,9 @@ always_ff @(posedge clk or negedge rst_n) begin
             parallel_out <= {{serial_in}, parallel_out[N-1:1]};
         end
     end
+    else begin
+      parallel_out <= parallel_out;
+    end
 end
 
 assign serial_out = parallel_out[0];

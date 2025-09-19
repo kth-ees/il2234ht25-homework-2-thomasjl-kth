@@ -1,0 +1,15 @@
+.DS_Store
+
+*.bak
+
+*.mpf
+
+*.wlf
+
+*.mti
+
+*.dbg
+
+work/
+
+transcript
