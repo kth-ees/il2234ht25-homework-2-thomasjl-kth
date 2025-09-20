@@ -10,7 +10,7 @@ module LFSR_6bit (
       parallel_out <= '0;
     end
     else begin
-      case sel
+      case (sel)
       1'b0 : parallel_out <= parallel_in;
       1'b1 : begin
         parallel_out[0] <= parallel_out[5];
